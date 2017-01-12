@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - role: AnsibleShipyard.ansible-zookeeper
+    - {
+        role: "ansible-kafka",
+        kafka_hosts: ["localhost"],
+        kafka_zookeeper_hosts: ["localhost"],
+        kafka_version: 0.8.2.1,
+        kafka_scala_serverion: 2.10
+    }
+  tasks:
+    - name: Create Apache Kafka input topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic input-tweets
+
+    - name: Create Apache Kafka output topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic output-results
+
+    - name: Create Apache Kafka output topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic something-else
+
