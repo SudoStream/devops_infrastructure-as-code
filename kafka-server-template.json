@@ -14,6 +14,7 @@
     "zone": "europe-west1-b",
     "ssh_username" : "aehrelease",
     "image_name" : "aeh-kafka-{{timestamp}}",
+    "image_family" : "api-event-horizon",
     "image_description" : "Image is Kafka cluster atom",
     "instance_name" : "aeh-kafka-{{uuid}}",
     "machine_type" : "n1-standard-1",
