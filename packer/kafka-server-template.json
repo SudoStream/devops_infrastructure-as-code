@@ -9,7 +9,7 @@
 
   "builders": [{
     "type": "googlecompute",
-    "project_id": "api-event-horizon-dev",
+    "project_id": "api-event-horizon-151020",
     "source_image": "ubuntu-1404-trusty-v20170110",
     "zone": "europe-west1-b",
     "ssh_username" : "aehrelease",

@@ -1,11 +1,11 @@
 provider "google" {
-  credentials = "${file("/home/andy/.ssh/gcloud/api-event-horizon-dev-3a99f168ab14.json")}"
-  project     = "api-event-horizon-dev"
+  credentials = "${file("/home/andy/.ssh/gcloud/api-event-horizon-dc3bca8713a5.json")}"
+  project     = "api-event-horizon-151020"
   region      = "europe-west1"
 }
 
 resource "google_compute_instance" "default" {
-  name         = "kafka-1"
+  name         = "kafka-server-1"
   machine_type = "n1-standard-1"
   zone         = "europe-west1-b"
 
@@ -13,7 +13,7 @@ resource "google_compute_instance" "default" {
 
   disk {
     //image = "ubuntu-os-cloud/ubuntu-1604-lts"
-    image = "aeh-kafka-1484577698"
+    image = "aeh-kafka-1484686751"
   }
 
   // Local SSD disk
