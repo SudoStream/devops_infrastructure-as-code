@@ -33,8 +33,6 @@ resource "google_compute_instance" "kafka-server" {
     foo = "bar"
   }
 
-  //metadata_startup_script = "${file("${path.module}/kafkaStartup.sh")}"
-
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
   }
@@ -45,8 +43,8 @@ resource "google_dns_managed_zone" "dev" {
   dns_name = "dev.sudostream.io."
 }
 
-resource "google_dns_record_set" "frontend" {
-  name = "frontend.${google_dns_managed_zone.dev.dns_name}"
+resource "google_dns_record_set" "kafka" {
+  name = "kafka.${google_dns_managed_zone.dev.dns_name}"
   type = "A"
   ttl  = 300
 
