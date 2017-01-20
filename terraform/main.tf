@@ -4,7 +4,7 @@ provider "google" {
   region      = "europe-west1"
 }
 
-resource "google_compute_instance" "default" {
+resource "google_compute_instance" "kafka-server" {
   name         = "kafka-server-1"
   machine_type = "n1-standard-1"
   zone         = "europe-west1-b"
@@ -40,11 +40,26 @@ resource "google_compute_instance" "default" {
   }
 }
 
+resource "google_dns_managed_zone" "dev" {
+  name     = "dev-zone"
+  dns_name = "dev.sudostream.io."
+}
+
+resource "google_dns_record_set" "frontend" {
+  name = "frontend.${google_dns_managed_zone.dev.dns_name}"
+  type = "A"
+  ttl  = 300
+
+  managed_zone = "${google_dns_managed_zone.dev.name}"
+
+  rrdatas = ["${google_compute_instance.kafka-server.network_interface.0.access_config.0.assigned_nat_ip}"]
+}
+
 output "external_instance_ips" {
-  value = "${join(" ", google_compute_instance.default.*.network_interface.0.access_config.0.assigned_nat_ip)}"
+  value = "${join(" ", google_compute_instance.kafka-server.*.network_interface.0.access_config.0.assigned_nat_ip)}"
 }
 
 output "internal_instance_ips" {
-  value = "${join(" ", google_compute_instance.default.*.network_interface.0.address)}"
+  value = "${join(" ", google_compute_instance.kafka-server.*.network_interface.0.address)}"
 }
 
