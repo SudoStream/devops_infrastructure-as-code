@@ -4,6 +4,10 @@ provider "google" {
   region      = "europe-west1"
 }
 
+resource "google_compute_address" "kafka-server-address" {
+  name = "kafka-server-address"
+}
+
 resource "google_compute_instance" "kafka-server" {
   name         = "kafka-server-1"
   machine_type = "n1-standard-1"
@@ -22,7 +26,7 @@ resource "google_compute_instance" "kafka-server" {
   network_interface {
     network = "default"
     access_config {
-      // Ephemeral IP
+      nat_ip = "${google_compute_address.kafka-server-address.address}"
     }
   }
 
@@ -31,27 +35,25 @@ resource "google_compute_instance" "kafka-server" {
   }
 }
 
-resource "google_compute_address" "kafka-server-address" {
-    name = "kafka-server-address"
-}
-
-resource "google_compute_forwarding_rule" "http" {
-  name = "tf-www-http-forwarding-rule"
-  target = "${google_compute_instance.kafka-server.self_link}"
-  ip_address = "${google_compute_address.kafka-server-address.address}"
-  port_range = "80"
-}
-
-resource "google_compute_forwarding_rule" "https" {
-  name = "tf-www-https-forwarding-rule"
-  target = "${google_compute_instance.kafka-server.self_link}"
-  ip_address = "${google_compute_address.kafka-server-address.address}"
-  port_range = "443"
-}
+//resource "google_compute_forwarding_rule" "kafka_port" {
+//  name = "tf-www-http-forwarding-rule"
+//  target = "${google_compute_instance.kafka-server.self_link}"
+//  ip_address = "${google_compute_address.kafka-server-address.address}"
+//  port_range = "9092"
+//  ip_protocol = "tcp"
+//}
+//
+//resource "google_compute_forwarding_rule" "zookeeper_port" {
+//  name = "tf-www-https-forwarding-rule"
+//  target = "${google_compute_instance.kafka-server.self_link}"
+//  ip_address = "${google_compute_address.kafka-server-address.address}"
+//  port_range = "2181"
+//  ip_protocol = "tcp"
+//}
 
 resource "google_dns_managed_zone" "dev" {
   name     = "dev-zone"
-  dns_name = "dev.sudostream.io."
+  dns_name = "sudostream.io."
   description = "Sudostream Dev"
 }
 
