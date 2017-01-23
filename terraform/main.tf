@@ -12,6 +12,9 @@ resource "google_compute_instance" "kafka-server" {
 
   disk {
     image = "aeh-kafka-1484686751"
+  }
+
+  disk {
     type    = "local-ssd"
     scratch = true
   }
