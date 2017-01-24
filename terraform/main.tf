@@ -52,8 +52,8 @@ resource "google_compute_instance" "kafka-server" {
 //}
 
 resource "google_dns_managed_zone" "dev" {
-  name     = "dev-zone"
-  dns_name = "sudostream.io."
+  name     = "aeh-dev"
+  dns_name = "dev.sudostream.io."
   description = "Sudostream Dev"
 }
 
