@@ -5,10 +5,12 @@
     - role: AnsibleShipyard.ansible-zookeeper
     - {
         role: "ansible-kafka",
-        kafka_hosts: ["localhost"],
-        kafka_zookeeper_hosts: ["localhost"],
-        kafka_version: 0.8.2.1,
-        kafka_scala_serverion: 2.10
+        kafka_hosts_initial: ["localhost"],
+        kafka_zookeeper_hosts_initial: ["localhost"],
+        kafka_hosts: ["kafka.dev.sudostream.io"],
+        kafka_zookeeper_hosts: ["kafka.dev.sudostream.io"],
+        kafka_version: 0.10.1.1,
+        kafka_scala_serverion: 2.11
     }
   tasks:
     - name: Create Apache Kafka input topic.
