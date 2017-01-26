@@ -3,7 +3,7 @@ resource "google_compute_address" "kafka-server-address" {
 }
 
 resource "google_compute_instance" "kafka-server" {
-  name         = "kafka-server-1"
+  name         = "kafka.dev.sudostream.io"
   machine_type = "n1-standard-1"
   zone         = "europe-west1-b"
   tags = ["kafka", "messaging"]
