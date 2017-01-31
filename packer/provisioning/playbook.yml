@@ -5,10 +5,8 @@
     - role: AnsibleShipyard.ansible-zookeeper
     - {
         role: "ansible-kafka",
-        kafka_hosts_initial: ["localhost"],
-        kafka_zookeeper_hosts_initial: ["localhost"],
-        kafka_hosts: ["localhost"],
-        kafka_zookeeper_hosts: ["localhost"],
+        kafka_hosts: ["0.0.0.0"],
+        kafka_zookeeper_hosts: ["0.0.0.0"],
         kafka_version: 0.10.1.1,
         kafka_scala_serverion: 2.11
     }

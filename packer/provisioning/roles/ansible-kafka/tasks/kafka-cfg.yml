@@ -17,16 +17,10 @@
   when: kafka_generate_broker_id | bool and kafka_version | version_compare('0.9.0.0', '>=')
 
 - name: "Generate the zookeeper hosts connection string initial"
-  set_fact: zookeeper_connection_string="{{ kafka_zookeeper_hosts_initial | join(':' ~ kafka_zookeeper_port ~ ',') }}:{{ kafka_zookeeper_port }}"
+  set_fact: zookeeper_connection_string="{{ kafka_zookeeper_hosts | join(':' ~ kafka_zookeeper_port ~ ',') }}:{{ kafka_zookeeper_port }}"
 
 - name: "Generate the kafka hosts connection string initial"
-  set_fact: kafka_connection_string="{{ kafka_hosts_initial | join(':' ~ server.port ~ ',') }}:{{ server.port }}"
-
-- name: "Generate the server listeners connection string"
-  set_fact: kafka_listeners="plaintext://localhost:9092"
-
-- name: "Generate the server advertised listeners connection string"
-  set_fact: server_advertised_listeners="{{ kafka_hosts | join(':' ~ server.port ~ ',') }}:{{ server.port }}"
+  set_fact: kafka_connection_string="{{ kafka_hosts | join(':' ~ server.port ~ ',') }}:{{ server.port }}"
 
 - name: "Render and write out kafka configuration files"
   template: src=usr/local/kafka/config/{{ item }}.j2 dest="{{ kafka_conf_dir }}/{{ item }}" mode=0640 owner={{ kafka_user }} group={{ kafka_group }}
@@ -72,30 +66,6 @@
   tags:
     - kafka-cfg
     - kafka-healthcheck
-
-- name: "Generate the zookeeper hosts connection string"
-  set_fact: zookeeper_connection_string="{{ kafka_zookeeper_hosts | join(':' ~ kafka_zookeeper_port ~ ',') }}:{{ kafka_zookeeper_port }}"
-
-- name: "Generate the kafka hosts connection string"
-  set_fact: kafka_connection_string="{{ kafka_hosts | join(':' ~ server.port ~ ',') }}:{{ server.port }}"
-
-- name: "Generate the server listeners connection string"
-  set_fact: kafka_listeners="plaintext://kafka.dev.sudostream.io:9092"
-
-- name: "Generate the server advertised listeners connection string"
-  set_fact: advertised_listeners="kafka.dev.sudostream.io:9092"
-
-- name: "Render and write out kafka configuration files again - but don't restart"
-  template: src=usr/local/kafka/config/{{ item }}.j2 dest="{{ kafka_conf_dir }}/{{ item }}" mode=0640 owner={{ kafka_user }} group={{ kafka_group }}
-  sudo: yes
-  with_items:
-    - server.properties
-    - producer.properties
-    - consumer.properties
-    - log4j.properties
-  tags:
-    - kafka-cfg
-
 
 #- name: "Check kafka port test result"
 #  fail: msg="Kafka port not open on host={{ inventory_hostname }}, port={{ server.port }}"
