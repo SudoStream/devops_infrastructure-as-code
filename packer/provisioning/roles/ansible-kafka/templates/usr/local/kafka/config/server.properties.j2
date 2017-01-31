@@ -64,7 +64,7 @@ queued.max.requests={{ server.queued_max_requests }}
 {% if server.listeners %}
 # default: null
 # Listener List - Comma-separated list of URIs we will listen on and their protocols. Specify hostname as 0.0.0.0 to bind to all interfaces. Leave hostname empty to bind to default interface. Examples of legal listener lists: PLAINTEXT://myhost:9092,TRACE://:9091 PLAINTEXT://0.0.0.0:9092, TRACE://localhost:9093
-listeners={{ server.listeners }}
+listeners={{ kafka_listeners }}
 {% endif %}
 
 {% if server.advertised_listeners %}
