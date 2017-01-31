@@ -9,7 +9,7 @@ resource "google_compute_instance" "kafka-server" {
   tags = ["kafka", "messaging"]
 
   disk {
-    image = "aeh-kafka-1485880929"
+    image = "aeh-kafka-1485882763"
   }
 
   disk {
