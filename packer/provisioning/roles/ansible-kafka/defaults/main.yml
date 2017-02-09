@@ -32,7 +32,7 @@ kafka_max_logbackup_idx: 7
 kafka_logger_root: INFO, stdout
 kafka_logger_kafka: INFO, kafkaAppender
 kafka_logger_kafka_controller: TRACE, controllerAppender
-kafka_logger_kafka_request: WARN, requestAppender
+kafka_logger_kafka_request: TRACE, requestAppender
 kafka_logger_kafka_cleaner: INFO, cleanerAppender
 kafka_logger_state: TRACE, stateChangeAppender
 
@@ -40,7 +40,7 @@ kafka_heap_opts: "-Xmx1G -Xms1G"
 
 nofiles_limit: 50000
 
-kafka_port_test_timeout_seconds: 60
+kafka_port_test_timeout_seconds: 30
 
 kafka_generate_broker_id: yes
 
