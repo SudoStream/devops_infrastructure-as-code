@@ -9,7 +9,7 @@
     - java
 
 - name: "Install OpenJDK"
-  apt: name=openjdk-8-jre-headless state=present
+  apt: name=openjdk-8-jre state=present
   sudo: yes
   when: check_java.rc != 0
   tags:
