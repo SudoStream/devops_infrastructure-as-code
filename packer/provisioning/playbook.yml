@@ -12,13 +12,22 @@
     }
   tasks:
     - name: Create Apache Kafka input topic.
-      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic aeh-api-definitions
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic api-definition
 
     - name: Create Apache Kafka output topic.
-      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic speculative-screenplays
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic speculative-screenplay
 
     - name: Create Apache Kafka output topic.
-      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic protagonist-answers
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic greenlit-film
+
+    - name: Create Apache Kafka output topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic final-script
+
+    - name: Create Apache Kafka output topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic live-acted-line
+
+    - name: Create Apache Kafka output topic.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic film-review
 
     - name: Create Apache Kafka output topic.
       shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
