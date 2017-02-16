@@ -3,7 +3,7 @@
 resource "google_container_cluster" "primary" {
   name = "api-event-horizon-cluster"
   zone = "europe-west1-b"
-  initial_node_count = 3
+  initial_node_count = 1
 
   master_auth {
     username = "andy.sudo"
