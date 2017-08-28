@@ -1,6 +1,6 @@
 provider "google" {
-  credentials = "${file("/home/andy/.ssh/gcloud/brownian-motion-driven-dev-2e36c39299f6.json")}"
-  project     = "brownian-motion-driven-dev"
+  credentials = "${file("/home/andy/.secrets/time-to-teach-4fea6557e082.json")}"
+  project     = "time-to-teach"
   region      = "europe-west1"
 }
 
