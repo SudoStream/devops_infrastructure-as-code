@@ -14,7 +14,7 @@ resource "google_compute_instance" "kafka-server" {
 
   disk {
     type    = "local-ssd"
-    scratch = true
+   scratch = true
   }
 
   network_interface {
