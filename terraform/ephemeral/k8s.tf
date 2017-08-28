@@ -2,7 +2,7 @@
 
 resource "google_container_cluster" "primary" {
   name = "timetoteach-dev-cluster"
-  zone = "europe-west1-b"
+  zone = "europe-west1-c"
   initial_node_count = 3
 
   master_auth {

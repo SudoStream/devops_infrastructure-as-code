@@ -5,7 +5,7 @@
 //resource "google_compute_instance" "kafka-server" {
 //  name         = "kafka-server-1"
 //  machine_type = "n1-standard-1"
-//  zone         = "europe-west1-b"
+//  zone         = "europe-west1-c"
 //  tags = ["kafka", "messaging"]
 //
 //  disk {

@@ -11,7 +11,7 @@
     "type": "googlecompute",
     "project_id": "api-event-horizon-151020",
     "source_image": "ubuntu-1404-trusty-v20170110",
-    "zone": "europe-west1-b",
+    "zone": "europe-west1-c",
     "ssh_username" : "aehrelease",
     "image_name" : "aeh-kafka-{{timestamp}}",
     "image_family" : "api-event-horizon",
