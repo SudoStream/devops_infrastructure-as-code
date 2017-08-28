@@ -1,7 +1,7 @@
 
 
 resource "google_container_cluster" "primary" {
-  name = "api-event-horizon-cluster"
+  name = "timetoteach-dev-cluster"
   zone = "europe-west1-b"
   initial_node_count = 3
 
