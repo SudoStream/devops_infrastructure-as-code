@@ -1,6 +1,6 @@
 resource "google_dns_managed_zone" "dev" {
-  name     = "aeh-dev"
-  dns_name = "dev.sudostream.io."
+  name     = "timetoteach-dev"
+  dns_name = "timetoteach-dev.sudostream.io."
   description = "Sudostream Dev"
 }
 

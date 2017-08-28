@@ -1,6 +1,6 @@
 provider "google" {
-  credentials = "${file("/home/andy/.ssh/gcloud/api-event-horizon-dc3bca8713a5.json")}"
-  project     = "api-event-horizon-151020"
+  credentials = "${file("/home/andy/.secrets/time-to-teach-4fea6557e082.json")}"
+  project     = "time-to-teach"
   region      = "europe-west1"
 }
 
