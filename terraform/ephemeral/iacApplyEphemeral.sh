@@ -6,6 +6,9 @@ THIS_DIR=`dirname $0`
 echo "Dir: ${THIS_DIR}"
 cd ${THIS_DIR}
 
+# TODO: Paramerise this later, i.e. dev, test, prod
+./db/dev/provisionDevMongoDb.sh
+
 export IAC_ENDURING_DIR=${HOME}/iac/enduring
 export IAC_EPHEMERAL_DIR=${HOME}/iac/ephemeral
 mkdir -p ${IAC_EPHEMERAL_DIR}

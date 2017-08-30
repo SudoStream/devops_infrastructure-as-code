@@ -1,0 +1,12 @@
+{
+  "name" : "TimeToTeachDevMongoDB",
+  "diskSizeGB" : 10,
+  "numShards" : 1,
+  "providerSettings" : {
+    "providerName" : "GCP",
+    "instanceSizeName" : "M10",
+    "regionName" : "WESTERN_EUROPE"
+  },
+  "replicationFactor" : 3,
+  "backupEnabled" : false
+}
