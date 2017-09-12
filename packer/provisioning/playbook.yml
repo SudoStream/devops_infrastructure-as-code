@@ -11,8 +11,11 @@
         kafka_scala_serverion: 2.11
     }
   tasks:
-    - name: Create Apache Kafka topic api-definition.
+    - name: Create Apache Kafka topic UI_REQUEST.
       shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic UI_REQUEST
 
-    - name: Create Apache Kafka topic speculative-screenplay.
-      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic EXPERIENCES_AND_OUTCOMES
+    - name: Create Apache Kafka topic EXPERIENCES_AND_OUTCOMES.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic
+
+    - name: Create Apache Kafka topic SYSTEM_ALL_EVENTS_LOG.
+      shell: /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SYSTEM_ALL_EVENTS_LOG
