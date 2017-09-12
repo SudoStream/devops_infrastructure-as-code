@@ -18,7 +18,7 @@ resource "google_compute_instance" "kafka-server" {
 
   boot_disk {
     initialize_params {
-      image = "ttt-kafka-TODO"
+      image = "ttt-kafka-1505140356"
     }
   }
 
