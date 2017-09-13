@@ -2,11 +2,11 @@ resource "google_compute_address" "kafka-server-address" {
   name = "kafka-server-address"
 }
 
-resource "google_compute_disk" "kafka-server-compute-disk" {
-  name = "kafka-server-compute-disk"
-  zone = "europe-west1-c"
-  image = "ttt-kafka-1505230893"
-}
+//resource "google_compute_disk" "kafka-server-compute-disk" {
+//  name = "kafka-server-compute-disk"
+//  zone = "europe-west1-c"
+//  image = "ttt-kafka-1505230893"
+//}
 
 resource "google_compute_instance" "kafka-server" {
   name = "kafka-server-1"
