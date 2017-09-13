@@ -16,14 +16,12 @@ resource "google_compute_instance" "kafka-server" {
     "kafka",
     "messaging"]
 
-  boot_disk {
-    initialize_params {
-      image = "ttt-kafka-1505140356"
-    }
+  disk {
+    image = "aeh-kafka-1487097685"
   }
 
-  scratch_disk {
-    type = "local-ssd"
+  disk {
+    type    = "local-ssd"
     scratch = true
   }
 
