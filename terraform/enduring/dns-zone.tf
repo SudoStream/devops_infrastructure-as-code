@@ -1,7 +1,7 @@
 resource "google_dns_managed_zone" "dev" {
   name     = "timetoteach-dev"
-  dns_name = "timetoteach-dev.sudostream.io."
-  description = "Sudostream Dev"
+  dns_name = "timetoteach-dev.timetoteach.co."
+  description = "TimeToTeach Dev"
 }
 
 output "dev_name_servers" {
