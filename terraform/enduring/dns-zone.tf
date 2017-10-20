@@ -1,6 +1,6 @@
 resource "google_dns_managed_zone" "dev" {
   name     = "timetoteach-dev"
-  dns_name = "timetoteach-dev.timetoteach.co."
+  dns_name = "timetoteach-dev.timetoteach.zone."
   description = "TimeToTeach Dev"
 }
 
