@@ -3,7 +3,7 @@
 resource "google_container_cluster" "primary" {
   name = "timetoteach-dev-cluster"
   zone = "europe-west1-c"
-  initial_node_count = 2
+  initial_node_count = 5
 
   master_auth {
     username = "andy.sudo"
@@ -11,7 +11,7 @@ resource "google_container_cluster" "primary" {
   }
 
   node_config {
-    machine_type = "n1-standard-1"
+    machine_type = "n1-standard-2"
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
