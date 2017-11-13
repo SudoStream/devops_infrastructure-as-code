@@ -17,7 +17,7 @@ resource "google_compute_instance" "kafka-server" {
     "messaging"]
 
   disk {
-    image = "ttt-kafka-1505230893"
+    image = "ttt-kafka-1510574874"
   }
 
   disk {

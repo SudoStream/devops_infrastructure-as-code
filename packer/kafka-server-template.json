@@ -9,6 +9,7 @@
 
   "builders": [{
     "type": "googlecompute",
+    "account_file" : "/home/andy/.secrets/time-to-teach-zone-ffc79db65fb1.json",
     "project_id": "time-to-teach-zone",
     "source_image": "ubuntu-1404-trusty-v20170110",
     "zone": "europe-west1-c",
