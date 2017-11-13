@@ -9,7 +9,7 @@
 
   "builders": [{
     "type": "googlecompute",
-    "project_id": "time-to-teach",
+    "project_id": "time-to-teach-zone",
     "source_image": "ubuntu-1404-trusty-v20170110",
     "zone": "europe-west1-c",
     "ssh_username" : "tttrelease",
