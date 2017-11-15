@@ -52,14 +52,6 @@ resource "google_dns_record_set" "kafka" {
     "${google_compute_instance.kafka-server.network_interface.0.access_config.0.assigned_nat_ip}"]
 }
 
-resource "google_dns_record_set" "kafka" {
-  name = "timetoteach.${var.dev_dns_name}"
-  type = "A"
-  ttl = 300
-  managed_zone = "${var.dev_dns_zone_name}"
-  rrdatas = [""]
-}
-
 output "kafka_external_ips" {
   value = "${join(" ", google_compute_instance.kafka-server.*.network_interface.0.access_config.0.assigned_nat_ip)}"
 }
