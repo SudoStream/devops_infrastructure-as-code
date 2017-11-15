@@ -7,11 +7,13 @@ echo "Dir: ${THIS_DIR}"
 cd ${THIS_DIR}
 
 # TODO: Paramerise this later, i.e. dev, test, prod
-./db/dev/provisionDevMongoDb.sh
+#./db/dev/provisionDevMongoDb.sh
 
 export IAC_ENDURING_DIR=${HOME}/iac/enduring
 export IAC_EPHEMERAL_DIR=${HOME}/iac/ephemeral
 mkdir -p ${IAC_EPHEMERAL_DIR}
+echo "The directory looking at is .... ${IAC_EPHEMERAL_DIR}"
+
 
 export DEV_DNS_NAME_SERVERS=`terraform output -state=${IAC_ENDURING_DIR}/terraform.tfstate dev_name_servers`
 export DEV_DNS_NAME=`terraform output -state=${IAC_ENDURING_DIR}/terraform.tfstate dev_dns_name`
